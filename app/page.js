@@ -93,7 +93,7 @@ export default async function Home() {
         className="mt-24 grid md:grid-cols-2 lg:grid-cols-3 gap-8"
       >
         {features.map((feature, index) => (
-          <Card key={feature.title} className="shadow-lg">
+          <Card key={index} className="shadow-lg">
 
             <CardContent className="p-6">
               <div className="h-12 w-12 bg-orange-100 rounded-full flex items-center justify-center mb-4">
