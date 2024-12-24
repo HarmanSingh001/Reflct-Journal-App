@@ -1,12 +1,26 @@
-import { TestimonialCarousel } from "@/components/testimonial-carousel";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import React from "react";
+import {
+  Book,
+  Sparkles,
+  Lock,
+  Calendar,
+  ChevronRight,
+  BarChart2,
+  FileText,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import TestimonialCarousel from "@/components/testimonial-carousel";
 import { Skeleton } from "@/components/ui/skeleton";
-import { BarChart2, Book, Calendar, ChevronRight, FileText, Lock, Sparkles } from "lucide-react";
 import Link from "next/link";
-import faqs from "@/data/faqs";
 import { getDailyPrompt } from "@/actions/public";
+import faqs from "@/data/faqs";
 
 const features = [
   {
@@ -29,29 +43,30 @@ const features = [
   },
 ];
 
-export default async function Home() {
+export default async function LandingPage() {
   const advice = await getDailyPrompt();
+
   return (
     <div className="relative container mx-auto px-4 pt-16 pb-16">
+      {/* Hero Section */}
       <div className="max-w-5xl mx-auto text-center space-y-8">
-        <h1 className="text-5xl md:text-7xl lg:text-8xl mb-6 gradient-title">
+        <h1 className="text-5xl md:text-7xl lg:text-8xl gradient-title mb-6">
           Your Space to Reflect. <br /> Your Story to Tell.
         </h1>
         <p className="text-lg md:text-xl text-orange-800 mb-8">
-          Capture your thoughts, track your moods, and reflect on your journey in a beautiful, secure space.
+          Capture your thoughts, track your moods, and reflect on your journey
+          in a beautiful, secure space.
         </p>
         <div className="relative">
           <div className="absolute inset-0 bg-gradient-to-t from-orange-50 via-transparent to-transparent pointer-events-none z-10" />
-          <div className="bg-white rounded -2x1 p-4 max-full max-auto">
-            <div className="border-b border-orange-orang-100 pb-4 mb-4 flex items-center justify-between">
+          <div className="bg-white rounded-2xl  p-4 max-full mx-auto">
+            <div className="border-b border-orange-100 pb-4 mb-4 flex items-center justify-between">
               <div className="flex items-center gap-2">
-
                 <Calendar className="h-5 w-5 text-orange-600" />
                 <span className="text-orange-900 font-medium">
                   Today&rsquo;s Entry
                 </span>
               </div>
-
               <div className="flex gap-2">
                 <div className="h-3 w-3 rounded-full bg-orange-200" />
                 <div className="h-3 w-3 rounded-full bg-orange-300" />
@@ -68,17 +83,16 @@ export default async function Home() {
             </div>
           </div>
         </div>
-
         <div className="flex justify-center gap-4">
-          <Link href={"/dashboard"}>
+          <Link href="/dashboard">
             <Button
               variant="journal"
               className="px-8 py-6 rounded-full flex items-center gap-2"
             >
-              Start Writing<ChevronRight className="h-5 w-5" />
+              Start Writing <ChevronRight className="h-5 w-5" />
             </Button>
           </Link>
-          <Link href={"#features"}>
+          <Link href="#features">
             <Button
               variant="outline"
               className="px-8 py-6 rounded-full border-orange-600 text-orange-600 hover:bg-orange-100"
@@ -89,12 +103,13 @@ export default async function Home() {
         </div>
       </div>
 
-      <section id="features"
+      {/* Feature Cards */}
+      <section
+        id="features"
         className="mt-24 grid md:grid-cols-2 lg:grid-cols-3 gap-8"
       >
         {features.map((feature, index) => (
           <Card key={index} className="shadow-lg">
-
             <CardContent className="p-6">
               <div className="h-12 w-12 bg-orange-100 rounded-full flex items-center justify-center mb-4">
                 <feature.icon className="h-6 w-6 text-orange-600" />
@@ -109,7 +124,8 @@ export default async function Home() {
       </section>
 
       <div className="space-y-24 mt-24">
-        <div className="grid md:grid-cols-2 gap-12">
+        {/* Feature 1 */}
+        <div className="grid md:grid-cols-2 gap-12 ">
           <div className="space-y-6">
             <div className="h-12 w-12 bg-orange-100 rounded-full flex items-center justify-center">
               <FileText className="h-6 w-6 text-orange-600" />
@@ -131,29 +147,23 @@ export default async function Home() {
               </li>
             </ul>
           </div>
-          <div className="space-y-4 bg-white rounded-2xl p-6 border border-orange-100">
+          <div className="space-y-4 bg-white rounded-2xl shadow-xl p-6 border border-orange-100">
+            {/* Editor Preview */}
             <div className="flex gap-2 mb-6">
-              <div className="h-8 w-8 rounded bg-orange-100" />
-              <div className="h-8 w-8 rounded bg-orange-100" />
-              <div className="h-8 w-8 rounded bg-orange-100" />
+              <div className="h-8 w-8 rounded bg-orange-100"></div>
+              <div className="h-8 w-8 rounded bg-orange-100"></div>
+              <div className="h-8 w-8 rounded bg-orange-100"></div>
             </div>
-            <div className="h-4 bg-orange-50 rounded w-3/4" />
-            <div className="h-4 bg-orange-50 rounded w-full" />
-            <div className="h-4 bg-orange-50 rounded w-2/3" />
-            <div className="h-4 bg-orange-50 rounded w-1/3" />
+            <div className="h-4 bg-orange-50 rounded w-3/4"></div>
+            <div className="h-4 bg-orange-50 rounded w-full"></div>
+            <div className="h-4 bg-orange-50 rounded w-2/3"></div>
+            <div className="h-4 bg-orange-50 rounded w-1/3"></div>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          <div className="space-y-4 bg-white rounded-2xl p-6 border border-orange-100">
-            <div className="h-40 bg-gradient-to-t from-orange-100 to-orange-50 rounded-lg"></div>
-            <div className="flex justify-between">
-              <div className="h-4 w-16 bg-orange-100 rounded"></div>
-              <div className="h-4 w-16 bg-orange-100 rounded"></div>
-              <div className="h-4 w-16 bg-orange-100 rounded"></div>
-            </div>
-          </div>
-          <div className="space-y-6">
+        {/* Feature 2 */}
+        <div className="grid md:grid-cols-2 gap-12 md:flex-row-reverse">
+          <div className="space-y-6 md:order-2">
             <div className="h-12 w-12 bg-orange-100 rounded-full flex items-center justify-center">
               <BarChart2 className="h-6 w-6 text-orange-600" />
             </div>
@@ -161,7 +171,7 @@ export default async function Home() {
               Mood Analytics
             </h3>
             <p className="text-lg text-orange-700">
-              Track your emotional journey with powerful Analytics:
+              Track your emotional journey with powerful analytics:
             </p>
             <ul className="space-y-3">
               <li className="flex items-center gap-2">
@@ -174,45 +184,54 @@ export default async function Home() {
               </li>
             </ul>
           </div>
-
+          <div className="space-y-4 bg-white rounded-2xl shadow-xl p-6 border border-orange-100 md:order-1">
+            {/* Analytics Preview */}
+            <div className="h-40 bg-gradient-to-t from-orange-100 to-orange-50 rounded-lg"></div>
+            <div className="flex justify-between">
+              <div className="h-4 w-16 bg-orange-100 rounded"></div>
+              <div className="h-4 w-16 bg-orange-100 rounded"></div>
+              <div className="h-4 w-16 bg-orange-100 rounded"></div>
+            </div>
+          </div>
         </div>
       </div>
 
+      {/* Testimonials Carousel */}
       <TestimonialCarousel />
 
+      {/* FAQ Section */}
       <div className="mt-24">
         <h2 className="text-3xl font-bold text-center text-orange-900 mb-12">
           Frequently Asked Questions
         </h2>
         <Accordion type="single" collapsible className="w-full mx-auto">
-          {faqs.map((faq, index) => {
-            return (
-              <AccordionItem key={faq.q} value={`items-${index}`}>
-                <AccordionTrigger className="text-orange-900 text-lg">
-                  {faq.q}
-                </AccordionTrigger>
-                <AccordionContent className="text-orange-700">
-                  {faq.a}
-                </AccordionContent>
-              </AccordionItem>
-            );
-          })}
+          {faqs.map((faq, index) => (
+            <AccordionItem key={index} value={`item-${index}`}>
+              <AccordionTrigger className="text-orange-900 text-lg">
+                {faq.q}
+              </AccordionTrigger>
+              <AccordionContent className="text-orange-700">
+                {faq.a}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
         </Accordion>
       </div>
+
+      {/* CTA Section */}
       <div className="mt-24">
         <Card className="bg-gradient-to-r from-orange-100 to-amber-100">
           <CardContent className="p-12 text-center">
             <h2 className="text-3xl font-bold text-orange-900 mb-6">
-              Start Reflct-ing On Your Journey Today
+              Start Reflct-ing on Your Journey Today
             </h2>
-            <p className="text-gl text-orange-700 mb-8 max-w-2xl mx-auto">
-              Join thousands of writers who have already discovered the power of digital journaling.
+            <p className="text-lg text-orange-700 mb-8 max-w-2xl mx-auto">
+              Join thousands of writers who have already discovered the power of
+              digital journaling.
             </p>
-            <Link href="/dashboard">
-              <Button size="lg" variant="journal" className="animate-bounce">
-                Get Started for Free <ChevronRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
+            <Button size="lg" variant="journal" className="animate-bounce">
+              Get Started for Free <ChevronRight className="ml-2 h-4 w-4" />
+            </Button>
           </CardContent>
         </Card>
       </div>

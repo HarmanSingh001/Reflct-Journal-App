@@ -1,6 +1,7 @@
 "use client";
-import { UserButton } from '@clerk/nextjs';
-import { ChartNoAxesGantt } from 'lucide-react';
+
+import { UserButton } from "@clerk/nextjs";
+import { ChartNoAxesGantt } from "lucide-react";
 
 const UserMenu = () => {
     return (
@@ -11,9 +12,7 @@ const UserMenu = () => {
                 },
             }}
         >
-
             <UserButton.MenuItems>
-
                 <UserButton.Link
                     label="Dashboard"
                     labelIcon={<ChartNoAxesGantt size={15} />}
@@ -21,10 +20,8 @@ const UserMenu = () => {
                 />
                 <UserButton.Action label="manageAccount" />
             </UserButton.MenuItems>
-
         </UserButton>
-
     );
 };
 
-export default UserMenu
+export default UserMenu;
