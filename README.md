@@ -1,6 +1,6 @@
 ![Project Preview](public/img_readme.png)
 
-<h3 align="center">Reflect Journal App ✍️📊</h3>
+<h3 align="center">Reflct Journal App ✍️📊</h3>
 
 Reflect Journal App is a full-stack, feature-rich journaling application designed to provide users with a seamless platform to document their thoughts, track moods, and gain insightful analytics. Leveraging modern frameworks and technologies, the app delivers an intuitive, secure, and high-performance experience.
 
