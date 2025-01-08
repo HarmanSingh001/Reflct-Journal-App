@@ -53,6 +53,3 @@ Reflect Journal App is a full-stack, feature-rich journaling application designe
 4. **Voice-to-Text Journaling**: Add support for voice input to make journaling more convenient for users with diverse needs.
 5. **Customizable Themes**: Enable users to choose and personalize themes to improve their writing experience.
 6. **Multi-Language Support**: Expand the platform to support journaling in multiple languages for a global user base.
-
-<h4>🌐 Live Demo</h4>
-Try the app here: [Live Demo](https://getreflct.vercel.app)
